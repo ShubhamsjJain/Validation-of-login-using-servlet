@@ -54,6 +54,7 @@ public class ServletDashboardPage extends HttpServlet {
 		if(e_mail_Id.equals("abc.123@gmail.com") && Password.equals("dashboard")) {
 			
 			out.print("<html><body>");
+			out.print("<link rel=\"stylesheet\" href=\"css/styles.css\">");
 			out.print("<h1>Welcome to Dashboard<h1>");
 			
 			out.print("<form action= \"index.html\" method= \"post\" align= \"right\">");
@@ -70,6 +71,7 @@ public class ServletDashboardPage extends HttpServlet {
 			
 			out.print("</body></html>");
 		}else {
+			out.print("Wrong ID or Password.Please enter correct values");
 			response.sendRedirect("index.html");
 		}
 		
