@@ -1,13 +1,9 @@
 
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,16 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class addStudents
+ * Servlet implementation class addTeachers
  */
-@WebServlet("/addStudents")
-public class addStudents extends HttpServlet {
+@WebServlet("/addTeachers")
+public class addTeachers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addStudents() {
+    public addTeachers() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,11 +38,13 @@ public class addStudents extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		try {
 			PrintWriter out = response.getWriter();
 			out.println("<html><body>");
 			
+			String name = request.getParameter("name");
+			String e_mail = request.getParameter("e_mail");
+			String place = request.getParameter("place");
 			
 
 			// Get the URL, username, password from the config.properties file and load into props object.
@@ -62,10 +60,8 @@ public class addStudents extends HttpServlet {
 			//Create a Statement
 			
 			
-			PreparedStatement pstmt = conn.getDBConnection().prepareStatement("INSERT INTO students(name_full, email, city) values(?,?,?)");
-			String name = request.getParameter("name");
-			String e_mail = request.getParameter("e_mail");
-			String place = request.getParameter("place");
+			PreparedStatement pstmt = conn.getDBConnection().prepareStatement("INSERT INTO teachers(name_full, email, city) values(?,?,?)");
+			
 			pstmt.setString(1, name);
 			pstmt.setString(2, e_mail);
 			pstmt.setString(3, place);

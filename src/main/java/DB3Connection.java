@@ -2,7 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DB2Connection {
+public class DB3Connection {
 	
 	
 	private Connection connection;
@@ -12,7 +12,7 @@ public class DB2Connection {
 	
 	//Constructor 
 	
-	public DB2Connection(String dbURL, String user, String pwd) throws ClassNotFoundException, SQLException {
+	public DB3Connection(String dbURL, String user, String pwd) throws ClassNotFoundException, SQLException {
 		
 		this.dbURL = dbURL;
 		this.user = user;
