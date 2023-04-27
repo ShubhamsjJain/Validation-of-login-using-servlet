@@ -1,11 +1,14 @@
+package com.simplilearn.project1;
 
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,16 +17,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class liststudents
+ * Servlet implementation class addStudents
  */
-@WebServlet("/liststudents")
-public class liststudents extends HttpServlet {
+@WebServlet("/addStudents")
+public class addStudents extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public liststudents() {
+    public addStudents() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +35,22 @@ public class liststudents extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
 			PrintWriter out = response.getWriter();
 			out.println("<html><body>");
 			
+			
+
+			// Get the URL, username, password from the config.properties file and load into props object.
 
 			
 			// Creating object of DBConnection jdbc class
@@ -49,19 +63,26 @@ public class liststudents extends HttpServlet {
 			//Create a Statement
 			
 			
-			Statement stmt = conn.getDBConnection().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			
+			PreparedStatement pstmt = conn.getDBConnection().prepareStatement("INSERT INTO students(name_full, email, city) values(?,?,?)");
+			String name = request.getParameter("name");
+			String e_mail = request.getParameter("e_mail");
+			String place = request.getParameter("place");
+			pstmt.setString(1, name);
+			pstmt.setString(2, e_mail);
+			pstmt.setString(3, place);
 			
 			//Execute a SQL Query
+			pstmt.executeUpdate(); // Insert some product into students table.
 			
-			ResultSet rst = stmt.executeQuery("select * from students"); //Run a SQL Query.
 			
+			/*ResultSet rst = pstmt.executeQuery("select * from students"); //Run a SQL Query.
 			//Print the Results from the students table.
 			while(rst.next())
 			{
 				out.println(rst.getInt("id")+" ,"+rst.getString("name_full")+" ,"+rst.getString("email")+" ,"+rst.getString("city")+"<br>");
-			}
-			stmt.close();
+			}*/
+			
+			pstmt.close();
 			
 			// Close the Connection.
 			conn.closeConnection();
@@ -73,14 +94,6 @@ public class liststudents extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

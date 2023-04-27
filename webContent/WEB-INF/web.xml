@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<element>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>validationOfLogin</display-name>
   <welcome-file-list>
@@ -12,17 +13,17 @@
   
   <servlet>
   <servlet-name>ServletDashboardPage</servlet-name>
-  <servlet-class>ServletDashboardPage</servlet-class>
+  <servlet-class>com.simplilearn.project1.ServletDashboardPage</servlet-class>
   </servlet>
   
   <servlet-mapping>
   <servlet-name>ServletDashboardPage</servlet-name>
-  <url-pattern>/Dashboard_servlet</url-pattern>
+  <url-pattern>/ServletDashboardPage</url-pattern>
   </servlet-mapping>
   
   <servlet>
     <servlet-name>addStudents</servlet-name>
-    <servlet-class>addStudents</servlet-class>
+    <servlet-class>com.simplilearn.project1.addStudents</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>addStudents</servlet-name>
@@ -31,7 +32,7 @@
   
    <servlet>
     <servlet-name>liststudents</servlet-name>
-    <servlet-class>liststudents</servlet-class>
+    <servlet-class>com.simplilearn.project1.liststudents</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>liststudents</servlet-name>
@@ -40,7 +41,7 @@
   
   <servlet>
     <servlet-name>addTeachers</servlet-name>
-    <servlet-class>addTeachers</servlet-class>
+    <servlet-class>com.simplilearn.project1.addTeachers</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>addTeachers</servlet-name>
@@ -49,10 +50,11 @@
   
   <servlet>
     <servlet-name>listteachers</servlet-name>
-    <servlet-class>listteachers</servlet-class>
+    <servlet-class>com.simplilearn.project1.listteachers</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listteachers</servlet-name>
     <url-pattern>/listteachers</url-pattern>
   </servlet-mapping>
 </web-app>
+</element>
