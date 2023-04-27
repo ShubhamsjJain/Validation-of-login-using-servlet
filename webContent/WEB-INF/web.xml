@@ -28,4 +28,31 @@
     <servlet-name>addStudents</servlet-name>
     <url-pattern>/addStudents</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>liststudents</servlet-name>
+    <servlet-class>liststudents</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>liststudents</servlet-name>
+    <url-pattern>/liststudents</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>addTeachers</servlet-name>
+    <servlet-class>addTeachers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addTeachers</servlet-name>
+    <url-pattern>/addTeachers</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>listteachers</servlet-name>
+    <servlet-class>listteachers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listteachers</servlet-name>
+    <url-pattern>/listteachers</url-pattern>
+  </servlet-mapping>
 </web-app>

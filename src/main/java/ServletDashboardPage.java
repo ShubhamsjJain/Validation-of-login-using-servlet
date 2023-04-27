@@ -55,7 +55,7 @@ public class ServletDashboardPage extends HttpServlet {
 			
 			out.print("<html><body>");
 			out.print("<link rel=\"stylesheet\" href=\"css/styles.css\">");
-			out.print("<h1>Welcome to Dashboard<h1>");
+			out.print("<h1>Welcome to Admin Dashboard<h1>");
 			
 			out.print("<form action= \"index.html\" method= \"post\" align= \"right\">");
 			out.print("<button>Logout</button>");
@@ -70,10 +70,18 @@ public class ServletDashboardPage extends HttpServlet {
 			
 			//ADD STUDENTS
 			
-			out.print("<a href=addStudents.html>Add Students</a>"); 
+			out.print("<a href=addStudents.html>Add Students</a><br>"); 
+			
 			//LIST STUDENTS
+			out.print("<a href=liststudents>List Students</a><br>");
+			
 			//ADD TEACHERS
+			
+			out.print("<a href=addTeachers.html>Add Teachers</a><br>");
+			
 			//LIST TEACHERS
+			
+			out.print("<a href=listteachers>List Teachers</a><br>");
 			
 			
 			out.print("</body></html>");
