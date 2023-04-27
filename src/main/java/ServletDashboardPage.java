@@ -68,6 +68,13 @@ public class ServletDashboardPage extends HttpServlet {
 			out.print("Password: " + Password);
 			out.print("</h3>");
 			
+			//ADD STUDENTS
+			
+			out.print("<a href=addStudents.html>Add Students</a>"); 
+			//LIST STUDENTS
+			//ADD TEACHERS
+			//LIST TEACHERS
+			
 			
 			out.print("</body></html>");
 		}else {

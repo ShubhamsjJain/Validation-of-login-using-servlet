@@ -19,4 +19,13 @@
   <servlet-name>ServletDashboardPage</servlet-name>
   <url-pattern>/Dashboard_servlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>addStudents</servlet-name>
+    <servlet-class>addStudents</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addStudents</servlet-name>
+    <url-pattern>/addStudents</url-pattern>
+  </servlet-mapping>
 </web-app>
